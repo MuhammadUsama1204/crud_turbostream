@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ .message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.message-actions {
+  margin-left: 10px; /* Add margin for spacing between the message and the button */
+}
+
+.delete-button {
+  padding: 0;
+  font-size: 10px; /* Adjust the font size to control the icon size */
+  color: red; /* Set the color for the delete icon */
+}
+
+/* Optional: Add hover effect */
+.delete-button:hover {
+  text-decoration: underline;
+}
+
