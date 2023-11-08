@@ -66,7 +66,7 @@ class MessagesController < ApplicationController
       if @message.update(message_params)
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.update(@message, 
+            turbo_stream.append('allmessages', 
                                 partial: "messages/message", 
                                 locals: {message: @message})
           ]
