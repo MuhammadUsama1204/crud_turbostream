@@ -6,6 +6,9 @@
     </p>
   </div>
   <div class="message-actions">
-    <%= button_to "Delete", message, method: :delete, class: "btn btn-danger" %>
+    <div class="message-buttons">
+      <%= button_to "Edit", edit_message_path(message), class: "btn btn-primary", method: :post %>
+      <%= button_to "Delete", message, method: :delete, class: "btn btn-danger" %>
+    </div>
   </div>
 </div>
