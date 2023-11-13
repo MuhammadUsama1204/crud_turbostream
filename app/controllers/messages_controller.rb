@@ -34,6 +34,8 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        twilio_client = TwilioClient.new
+        twilio_client.send_text(@message.phone, @message.body)
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.update('new_message', 
@@ -106,6 +108,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:body)
+      params.require(:message).permit(:body, :phone)
     end
 end
